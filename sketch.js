@@ -8,7 +8,7 @@ var boat1img, boat2img,boat3img, boat4img;
 var boats;
 var oceanimg;
 var shoreimg;
-var backGroundimg;
+//var backGroundimg;
 var playerCount=0;
 var form, player, game;
 distance=0;
@@ -22,7 +22,7 @@ function preload()
 	boat4img=loadImage("boat4.png");
 	oceanimg=loadImage("ocean.jpg");
 	shoreimg=loadImage("shore.jpg");
-	backGroundimg=loadImage("bgimg.jpg")
+	//backGroundimg=loadImage("bgimg.jpg")
 }
 
 function setup() {
@@ -36,7 +36,7 @@ function setup() {
 
 
 function draw() {
-	background(backGroundimg);
+	//background(backGroundimg);
     if(playerCount === 4){
 		game.update(1);
 	  }

@@ -8,13 +8,12 @@ class Game {
     gameStateRef.on("value",function(data){
        gameState = data.val();
     })
-
-  }
+ }
 
   update(state){
     database.ref('/').update({
       gameState: state
-    });
+    })
   }
 
   async start(){
@@ -46,12 +45,12 @@ class Game {
 
   play(){
     form.hide();
+Player.getPlayerInfo();
 
-    Player.getPlayerInfo();
+    player.getBoatsAtEnd();
     
     if(allPlayers !== undefined){
-      //var display_position = 100;
-      
+    
       background(shoreimg)
       image(oceanimg,0,-displayHeight*4,displayWidth,displayHeight*5);
      
@@ -88,7 +87,11 @@ class Game {
     }
 
     if(player.distance>displayHeight*5){
-     gameState=2;
+      gameState=2;
+      player.rank+=1;
+      Player.updateboatsAtEnd(player.rank);
+      textSize(31);
+      text("Your Rank : "+player.rank, displayWidth/2 - 50,y-15);
     }
 
     drawSprites();
@@ -96,6 +99,7 @@ class Game {
 
     end(){
       console.log("gameEnded");
+      console.log(player.rank)
     }
 
 }
